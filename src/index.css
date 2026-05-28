@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+
+  --color-rose-50: #fdf6f7;
+  --color-rose-100: #fae9ec;
+  --color-rose-200: #f3d0d7;
+  --color-rose-300: #e7a9b5;
+  --color-rose-400: #d57f90;
+  --color-rose-500: #b76e79;
+  --color-rose-600: #9d5560;
+  --color-rose-700: #7e434d;
+  --color-nude-50: #faf7f4;
+  --color-nude-100: #f3ece4;
+  --color-nude-200: #e6d8ca;
+  --color-gold: #c8a96a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-nude-50);
+  color: #3a3236;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Animación de aparición al hacer scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: fadeInUp 0.7s ease forwards;
+}
