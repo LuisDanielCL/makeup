@@ -33,6 +33,8 @@ Decisiones tomadas con el usuario (no revertir sin preguntar):
 - Citas por WhatsApp (NO sistema de reservas con backend).
 - Catálogo administrado desde Google Sheets (NO panel de admin).
 - Imágenes en Cloudinary (se descartó Google Drive por links inestables).
+- Deploy en **Vercel** (se descartó GitHub Pages por requerir Action de build
+  y config de `base`). Hay un `vercel.json` con el build de Vite.
 
 ## Estructura
 
@@ -107,9 +109,21 @@ Compartir el Sheet como **"Cualquier persona con el enlace → Lector"**.
   si el negocio usa otra moneda.
 - Las imágenes de ejemplo vienen de Unsplash; se reemplazan solas al conectar el Sheet.
 
+## Deploy (Vercel)
+
+Decisión: **Vercel** (ver `vercel.json`). Pasos para publicar:
+
+1. Entrar a https://vercel.com y crear cuenta con la cuenta de GitHub.
+2. "Add New… → Project" e importar el repo `LuisDanielCL/makeup`.
+3. Vercel detecta Vite solo. En "Environment Variables" agregar las mismas
+   del `.env`: `VITE_WHATSAPP_NUMBER`, `VITE_SHEET_ID`, `VITE_BRAND_NAME`.
+4. "Deploy". Cada push a `master` redeploya automáticamente.
+
+Alternativa por CLI (requiere login interactivo): `npx vercel` y `npx vercel --prod`.
+
 ## Ideas / posibles mejoras futuras
 
 - Sección de testimonios/reseñas (otra pestaña del Sheet).
-- Deploy automático (Vercel / Netlify / GitHub Pages).
 - Cambiar de single-page a rutas (react-router) si crece.
 - SEO/meta tags y Open Graph para compartir en redes.
+- Dominio propio conectado en Vercel.
